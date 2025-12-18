@@ -18,7 +18,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { useRouter } from "next/navigation";
 
-const NAVBAR_HEIGHT = 64;
+// const NAVBAR_HEIGHT = 64;
 
 export default function Navbar() {
   const router = useRouter();
@@ -67,7 +67,7 @@ export default function Navbar() {
       <AppBar
         position="fixed"
         sx={{
-          height: NAVBAR_HEIGHT,
+          // height: NAVBAR_HEIGHT,
           backgroundColor: "#ea580c", // orange-600
         }}
       >
@@ -143,4 +143,4 @@ export default function Navbar() {
   );
 }
 
-export { NAVBAR_HEIGHT };
+// export { NAVBAR_HEIGHT };

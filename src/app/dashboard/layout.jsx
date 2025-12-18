@@ -1,26 +1,24 @@
-import Navbar, { NAVBAR_HEIGHT } from "@/components/Dashboard/Navbar";
+"use client";
+import { useSession } from "next-auth/react";
+import { redirect } from "next/navigation";
+import Navbar from "@/components/Dashboard/Navbar";
 import SideBar from "@/components/Dashboard/Sidebar";
-
-const drawerWidth = 240;
+import { Toaster } from "react-hot-toast";
 
 export default function DashboardLayout({ children }) {
+  const { status } = useSession();
+
+  if (status === "unauthenticated") {
+    redirect("/login");
+  }
+
   return (
-    <div>
+    <div className="h-screen flex flex-col">
+      <Toaster/>
       <Navbar />
-
-      <div className="flex">
+      <div className="flex flex-1">
         <SideBar />
-
-        <main
-          style={{
-            marginTop: NAVBAR_HEIGHT,
-            marginLeft: drawerWidth,
-            padding: "24px",
-            width: "100%",
-          }}
-        >
-          {children}
-        </main>
+        <main className="flex-1 p-6 ml-60">{children}</main>
       </div>
     </div>
   );

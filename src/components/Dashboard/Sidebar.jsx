@@ -15,9 +15,6 @@ import PeopleIcon from "@mui/icons-material/People";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Link from "next/link";
 
-const drawerWidth = 240;
-const navbarHeight = 64;
-
 export default function SideBar() {
   const router = useRouter();
   const pathname = usePathname();
@@ -36,16 +33,14 @@ export default function SideBar() {
     <Drawer
       variant="permanent"
       sx={{
-        width: drawerWidth,
         "& .MuiDrawer-paper": {
-          width: drawerWidth,
           boxSizing: "border-box",
-          mt: `${navbarHeight}px`,
-          height: `calc(100vh - ${navbarHeight}px)`,
+          mt: `64px`,
+          height: `calc(100vh - 65px)`,
         },
       }}
     >
-      <Box sx={{ overflow: "auto" }}>
+      <Box sx={{ overflow: "auto" }} className="w-60">
         <List>
           {menuItems.map((item) => (
             <ListItem key={item.label} disablePadding>

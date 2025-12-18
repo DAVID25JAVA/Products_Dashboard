@@ -1,4 +1,6 @@
+import { Toaster } from "react-hot-toast";
 import "./globals.css";
+import Providers from "./provider";
 
 export const metadata = {
   title: "Dashboard",
@@ -8,7 +10,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`antialiased`}>{children}</body>
+      <body className={`antialiased`}>
+        <Toaster/>
+         <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
